@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.controllers.ConfirmationController">
+    <bottom>
+        <Button styleClass="action-button-command" mnemonicParsing="false" onAction="#goToHome" text="Retour à l'accueil" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="20.0" />
+            </BorderPane.margin>
+        </Button>
+    </bottom>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" />
+    </padding>
+    <center>
+        <SplitPane dividerPositions="0.3337547408343868" orientation="VERTICAL" prefHeight="200.0" prefWidth="1646.0"
+                   BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER">
+                <padding>
+                    <Insets bottom="20.0"/>
+                </padding>
+                <Label fx:id="annonceConfirmation" text="Label"/>
+                <ImageView fx:id="imageConfirmation" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
+                           preserveRatio="true"/>
+            </VBox>
+        </SplitPane>
+    </center>
+    <top>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <Button styleClass="nav-button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                        minWidth="-Infinity" mnemonicParsing="false" onAction="#goToHome" prefHeight="50.0"
+                        prefWidth="105.0" text="Accueil" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS"
+                        wrapText="true" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <Button styleClass="nav-button" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                        onAction="#goToInventaire" prefHeight="50.0" prefWidth="157.0" text="Inventaire"
+                        textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" wrapText="true" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="241.0">
+                <Button styleClass="nav-button" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity"
+                        maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                        onAction="#goToChaineProduction" prefHeight="50.0" prefWidth="270.0"
+                        text="Chaine de production" wrapText="true"/>
+            </VBox>
+        </HBox>
+    </top>
+</BorderPane>
