@@ -6,9 +6,29 @@
 <?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="800.0" prefWidth="1300.0" style="-fx-background-radius: 15px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.controllers.ChainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" />
-    </padding>
+
+    <top>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                        mnemonicParsing="false" onAction="#goToHome" prefHeight="50.0" prefWidth="105.0"
+                        styleClass="nav-button" text="Accueil" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS"
+                        wrapText="true" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                        minWidth="-Infinity" mnemonicParsing="false" onAction="#goToInventaire" prefHeight="50.0"
+                        prefWidth="157.0" styleClass="nav-button" text="Inventaire" textAlignment="CENTER"
+                        textOverrun="LEADING_ELLIPSIS" wrapText="true" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="241.0">
+                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0"
+                        prefWidth="270.0" styleClass="nav-button" text="Chaine de production" wrapText="true"/>
+            </VBox>
+        </HBox>
+    </top>
+
     <center>
         <SplitPane dividerPositions="0.7353" prefHeight="200.0" prefWidth="1646.0" BorderPane.alignment="CENTER">
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -137,25 +157,5 @@
             </VBox>
         </SplitPane>
     </center>
-    <top>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0" BorderPane.alignment="CENTER">
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                        mnemonicParsing="false" onAction="#goToHome" prefHeight="50.0" prefWidth="105.0"
-                        styleClass="nav-button" text="Accueil" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS"
-                        wrapText="true" VBox.vgrow="ALWAYS"/>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                        minWidth="-Infinity" mnemonicParsing="false" onAction="#goToInventaire" prefHeight="50.0"
-                        prefWidth="157.0" styleClass="nav-button" text="Inventaire" textAlignment="CENTER"
-                        textOverrun="LEADING_ELLIPSIS" wrapText="true" VBox.vgrow="ALWAYS"/>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="241.0">
-                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="270.0" styleClass="nav-button" text="Chaine de production" wrapText="true"/>
-            </VBox>
-        </HBox>
-    </top>
+
 </BorderPane>
