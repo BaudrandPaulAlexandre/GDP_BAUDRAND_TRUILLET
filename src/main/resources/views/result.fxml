@@ -17,17 +17,17 @@
                         <TableView fx:id="chaineTableView" fixedCellSize="0.0" nodeOrientation="LEFT_TO_RIGHT"
                                    prefHeight="431.0" prefWidth="872.0" styleClass="table-view">
                             <columns>
-                                <TableColumn fx:id="chaineCode" prefWidth=".0" styleClass="table-column"
+                                <TableColumn fx:id="chainCode" prefWidth=".0" styleClass="table-column"
                                              text="Code"/>
-                                <TableColumn fx:id="chaineNom" prefWidth="75.0" styleClass="table-column"
+                                <TableColumn fx:id="chainName" prefWidth="75.0" styleClass="table-column"
                                              text="Nom"/>
-                                <TableColumn fx:id="chaineEntree" minWidth="100.0" prefWidth="248.20001220703125"
+                                <TableColumn fx:id="chainInput" minWidth="100.0" prefWidth="248.20001220703125"
                                              styleClass="table-column" text="Eléments en entrée"/>
-                                <TableColumn fx:id="chaineSortie" prefWidth="248.20001220703125"
+                                <TableColumn fx:id="chainOutput" prefWidth="248.20001220703125"
                                              styleClass="table-column" text="Eléments en sortie"/>
-                                <TableColumn fx:id="qte" prefWidth="248.20001220703125" styleClass="table-column"
+                                <TableColumn fx:id="quantity" prefWidth="248.20001220703125" styleClass="table-column"
                                              text="Qte"/>
-                                <TableColumn fx:id="faisabilite" prefWidth="248.20001220703125"
+                                <TableColumn fx:id="feasibility" prefWidth="248.20001220703125"
                                              styleClass="table-column" text="Faisabilité"/>
                             </columns>
                             <columnResizePolicy>
@@ -43,15 +43,12 @@
                         </BorderPane.margin>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="6.0">
                             <Label fx:id="stat" prefHeight="18.0" prefWidth="323.0" text="Résultat : "/>
-                            <ProgressBar fx:id="resultatCommande" prefHeight="18.0" prefWidth="238.0"
+                            <ProgressBar fx:id="orderResult" prefHeight="18.0" prefWidth="238.0"
                                          progress="0.0"/>
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="219.0" spacing="80.0">
-                            <Label fx:id="indicateurValeur" prefHeight="17.0" prefWidth="252.0"
+                            <Label fx:id="valueIndicator" prefHeight="17.0" prefWidth="252.0"
                                    text="Valeur totale : "/>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="219.0" spacing="80.0">
-                            <Label fx:id="statTemps" prefHeight="17.0" prefWidth="252.0" text="Temps total : "/>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0"/>
                     </VBox>

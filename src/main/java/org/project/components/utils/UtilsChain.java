@@ -14,7 +14,8 @@ import static org.project.components.models.Bakery.getChain;
 import static org.project.components.models.Bakery.getElements;
 public class UtilsChain {
 
-    private static final String CHAINES_FILE_PATH = "src/main/ressources/data/chains.csv";
+    //TODO: accès à chains.csv // C:\Users\Paul-AlexandreBaudra\Desktop\GDP_BAUDRAND_TRUILLET\src\main\resources\data\chains.csv
+    private static final String CHAINES_FILE_PATH = "src/main/resources/data/chains.csv";
     private static final String CHAINE_CODE_FORMAT = "C\\d{3}";
     private static final String CHAINE_CODE_ERROR_MESSAGE = "Code sour format : 'C000' - 'C999'";
     private static final String CHAINE_CODE_EXISTS_ERROR_MESSAGE = "Déja existant";
@@ -28,7 +29,7 @@ public class UtilsChain {
                 chains.add(parseChain(line));
             }
         } catch (IOException e) {
-            System.out.println("Problème d'accès au fichier");
+            System.out.println("Problème d'accès au fichier chains.csv");
         }
         return chains;
     }
@@ -41,8 +42,6 @@ public class UtilsChain {
 
         HashMap<Element, Double> elementsInput = parseElementList(parts[2]);
         HashMap<Element, Double> elementsOutput = parseElementList(parts[3]);
-
-        int time = Integer.parseInt(parts[4]);
 
         return new Chain(code, name, elementsInput, elementsOutput);
     }
@@ -85,7 +84,7 @@ public class UtilsChain {
                         + chain.getOutputListCSV());
             }
         } catch (IOException ex) {
-            System.out.println("Problème d'accès au fichier");
+            System.out.println("Problème d'accès au fichier chains.csv");
         }
     }
 

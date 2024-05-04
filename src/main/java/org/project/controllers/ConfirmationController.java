@@ -29,7 +29,7 @@ public class ConfirmationController implements Initializable {
         UtilsView.goToScene("/views/home.fxml", actionEvent);
     }
 
-    public void goToResultat(ActionEvent actionEvent) throws IOException {
+    public void goToResult(ActionEvent actionEvent) throws IOException {
         UtilsView.goToScene("/views/result.fxml", actionEvent);
     }
 

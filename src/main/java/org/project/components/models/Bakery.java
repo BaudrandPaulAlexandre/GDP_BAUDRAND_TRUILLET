@@ -18,7 +18,8 @@ public class Bakery {
     private static ObservableList<Order> orders = FXCollections.observableArrayList();
     private static ObservableList<Element> elements = FXCollections.observableArrayList();
 
-    //TODO: ? private Bakery(){}
+    //TODO: ?
+    private Bakery(){}
 
     public static Bakery getInstance(Integer bakeryId) {
         if (instance.get(bakeryId) == null) {
@@ -135,7 +136,7 @@ public class Bakery {
         elements.addAll(element);
     }
 
-    public static ObservableList<String> getNomElement(){
+    public static ObservableList<String> getElementName(){
         ObservableList<String> codeElements = FXCollections.observableArrayList();
         for(Element element : elements){
             codeElements.add(element.getName());

@@ -1,7 +1,6 @@
 package org.project;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +17,6 @@ import org.project.components.utils.UtilsChain;
 
 import static org.project.components.models.Bakery.getChain;
 import static org.project.components.models.Bakery.getElements;
-import static org.project.components.utils.UtilsOrder.getUsedElement;
 
 public class Main extends Application {
     public Bakery bakery;
@@ -28,7 +26,7 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/home.fxml")));
             Scene scene = new Scene(root);
-            String css = this.getClass().getResource("/style/styles.css").toExternalForm();
+            String css = Objects.requireNonNull(this.getClass().getResource("/style/styles.css")).toExternalForm();
             scene.getStylesheets().add(css);
             stage.setTitle("GDP");
             stage.setScene(scene);

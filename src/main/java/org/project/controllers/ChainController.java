@@ -20,9 +20,9 @@ import static org.project.components.utils.UtilsChain.*;
 public class ChainController implements Initializable {
 
     @FXML
-    private TextField quantitiesInput;
+    private TextField quantityInput;
     @FXML
-    private TextField quantitiesOutput;
+    private TextField quantityOutput;
     @FXML
     private TableView<Chain> chaineTableView;
     @FXML
@@ -48,21 +48,16 @@ public class ChainController implements Initializable {
     @FXML
     private Label message;
 
-    public ChainController() {
-    }
-
     public void initialize(URL location, ResourceBundle resources) {
-        // Set cell value factories for table columns
         chainCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        chainName.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        chainName.setCellValueFactory(new PropertyValueFactory<>("name"));
         chainInput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getInputListFormatted()));
         chainOuput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getOutputListFormatted()));
-        // Populate table view and combo boxes with data
-        chaineTableView.setItems(getChain());
-        comboBoxElementInput.setItems(getNomElement());
-        comboBoxElementOutput.setItems(getNomElement());
 
-        // Add listener to update text fields when a chain is selected
+        chaineTableView.setItems(getChain());
+        comboBoxElementInput.setItems(getElementName());
+        comboBoxElementOutput.setItems(getElementName());
+
         chaineTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 addCode.setText(newSelection.getCode());
@@ -95,9 +90,9 @@ public class ChainController implements Initializable {
             listField.setText(currentList);
     }
 
-    public void createInputList(){createList(addListInput, comboBoxElementInput, quantitiesInput);}
+    public void createInputList(){createList(addListInput, comboBoxElementInput, quantityInput);}
 
-    public void createOutputList(){createList(addListOutput, comboBoxElementOutput, quantitiesOutput);}
+    public void createOutputList(){createList(addListOutput, comboBoxElementOutput, quantityOutput);}
 
     public void addChaine() {
         try{

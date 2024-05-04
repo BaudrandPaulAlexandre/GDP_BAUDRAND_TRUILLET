@@ -43,22 +43,19 @@ public class HomeController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private int currentQte;
-
-    private Map<Chain, Integer> orderListHome = new HashMap<>();
+    private int currentQuantity;
+    private final Map<Chain, Integer> orderListHome = new HashMap<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        currentQte = 0; // initialize to 0 when you go in this page
+        this.currentQuantity = 0;
 
-        // set value for each column of the tableview
-        chainCode.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
-        chainName.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
-        chainInput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getInputListFormatted()));
-        chainOutput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getOutputListFormatted()));
+        this.chainCode.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
+        this.chainName.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
+        this.chainInput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getInputListFormatted()));
+        this.chainOutput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getOutputListFormatted()));
 
-        // custom button to set the quantity of the chaine
-        Callback<TableColumn<Chain, String>, TableCell<Chain, String>> cellFoctory = (TableColumn<Chain, String> param) -> {
+        Callback<TableColumn<Chain, String>, TableCell<Chain, String>> cellFactory = (TableColumn<Chain, String> param) -> {
             final TableCell<Chain, String> cell = new TableCell<Chain, String>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
@@ -71,7 +68,7 @@ public class HomeController implements Initializable {
                         Button less = new Button("-");
                         TextFieldTableCell tf = new TextFieldTableCell();
 
-                        tf.setText(String.valueOf(currentQte));
+                        tf.setText(String.valueOf(currentQuantity));
                         tf.setStyle(" -fx-cursor: hand ;" + "-glyph-size:50px;" + "-fx-fill:#ff1744;" +
                                     "-fx-cell-size: 80px;" + "-fx-start-margin: 30px;" + "-fx-pref-width: 60px;" +
                                     "-fx-alignment: center;"
@@ -84,19 +81,17 @@ public class HomeController implements Initializable {
 
                         tf.setEditable(true);
 
-                        // function to change on clic the value of the label
                         add.setOnAction(e -> {
-                            currentQte = Integer.parseInt(tf.getText());
-                            tf.setText(Integer.toString(currentQte + 1));
-                            orderListHome.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQte + 1));
+                            currentQuantity = Integer.parseInt(tf.getText());
+                            tf.setText(Integer.toString(currentQuantity + 1));
+                            orderListHome.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQuantity + 1));
                         });
 
-                        // function to change on clic the value of the label
                         less.setOnAction(e -> {
-                            currentQte = Integer.parseInt(tf.getText());
-                            tf.setText(Integer.toString(Math.max(0, currentQte - 1)));
-                            orderListHome.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQte - 1));
-                            if (currentQte - 1 == 0) {
+                            currentQuantity = Integer.parseInt(tf.getText());
+                            tf.setText(Integer.toString(Math.max(0, currentQuantity - 1)));
+                            orderListHome.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQuantity - 1));
+                            if (currentQuantity - 1 == 0) {
                                 orderListHome.remove(getTableView().getItems().get(getIndex()));
                             }
                         });
@@ -111,11 +106,10 @@ public class HomeController implements Initializable {
                     }
                 }
             };
-
             return cell;
         };
 
-        quantity.setCellFactory(cellFoctory);
+        quantity.setCellFactory(cellFactory);
         chainTableView.setItems(getChain());
     }
 

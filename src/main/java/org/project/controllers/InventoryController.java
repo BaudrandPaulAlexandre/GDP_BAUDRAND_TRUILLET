@@ -51,11 +51,11 @@ public class InventoryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         elementCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        elementName.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        elementPricePurchase.setCellValueFactory(new PropertyValueFactory<>("prixAchat"));
-        elementPriceSelling.setCellValueFactory(new PropertyValueFactory<>("prixVente"));
-        elementQuantity.setCellValueFactory(new PropertyValueFactory<>("quantite"));
-        elementUnit.setCellValueFactory(new PropertyValueFactory<>("unite"));
+        elementName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        elementPricePurchase.setCellValueFactory(new PropertyValueFactory<>("pricePurchase"));
+        elementPriceSelling.setCellValueFactory(new PropertyValueFactory<>("priceSelling"));
+        elementQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        elementUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
 
         elementTableView.setItems(getElements());
 
@@ -71,7 +71,7 @@ public class InventoryController implements Initializable {
         });
 
         addUnit.getItems().addAll(Unit.values());
-        addUnit.setValue(Unit.pieces);
+        addUnit.setValue(Unit.piece);
     }
 
     public void goToHome(ActionEvent actionEvent) throws IOException {
@@ -220,7 +220,7 @@ public class InventoryController implements Initializable {
         addQuantity.setText("");
         addPricePurchase.setText("");
         addPriceSelling.setText("");
-        addUnit.setValue(Unit.pieces);
+        addUnit.setValue(Unit.piece);
         message.setText("");
     }
 }

@@ -16,7 +16,7 @@ public class UtilsView {
         Parent root = FXMLLoader.load(Objects.requireNonNull(UtilsView.class.getResource(fxmlPath)));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        String css = UtilsView.class.getResource("/style/styles.css").toExternalForm();
+        String css = Objects.requireNonNull(UtilsView.class.getResource("/style/styles.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();

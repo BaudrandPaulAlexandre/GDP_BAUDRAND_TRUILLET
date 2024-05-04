@@ -24,7 +24,7 @@ public class UtilsElement {
 
             file.close();
         } catch (IOException ex) {
-            System.out.println("Acces problem");
+            System.out.println("Problème d'accès au fichier elements.csv");
         }
         return element;
     }
@@ -39,7 +39,8 @@ public class UtilsElement {
             PrintWriter file = new PrintWriter(new FileWriter(fileName));
 
             for (Element element : elements) {
-                file.println(element.getCode() + ";"
+                file.println(
+                        element.getCode() + ";"
                         + element.getName() + ";"
                         + element.getQuantity() + ";"
                         + element.getUnit() + ";"
@@ -48,7 +49,7 @@ public class UtilsElement {
             }
             file.close();
         } catch (IOException ex) {
-            System.out.println("Problème d'accès au fichier");
+            System.out.println("Problème d'accès au fichier elements.csv");
         }
     }
 

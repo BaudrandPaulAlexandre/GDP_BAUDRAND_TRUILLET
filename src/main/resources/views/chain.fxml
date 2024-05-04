@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="800.0" prefWidth="1300.0" style="-fx-background-radius: 15px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.controllers.ChainController">
     <padding>
@@ -23,11 +15,11 @@
                 <TableView fx:id="chaineTableView" fixedCellSize="0.0" nodeOrientation="LEFT_TO_RIGHT"
                            prefHeight="458.0" prefWidth="1649.0" styleClass="table-view">
                     <columns>
-                        <TableColumn fx:id="chaineCode" prefWidth="25.0" styleClass="table-column" text="Code"/>
-                        <TableColumn fx:id="chaineNom" prefWidth="25.0" styleClass="table-column" text="Nom"/>
-                        <TableColumn fx:id="chaineEntree" minWidth="250.0" prefWidth="248.20001220703125"
+                        <TableColumn fx:id="chainCode" prefWidth="25.0" styleClass="table-column" text="Code"/>
+                        <TableColumn fx:id="chainName" prefWidth="25.0" styleClass="table-column" text="Nom"/>
+                        <TableColumn fx:id="chainInput" minWidth="250.0" prefWidth="248.20001220703125"
                                      styleClass="table-column" text="Eléments en entrée"/>
-                        <TableColumn fx:id="chaineSortie" prefWidth="248.20001220703125" styleClass="table-column"
+                        <TableColumn fx:id="chainOuput" prefWidth="248.20001220703125" styleClass="table-column"
                                      text="Eléments en sortie"/>
                     </columns>
                     <columnResizePolicy>
@@ -36,29 +28,24 @@
                 </TableView>
             </HBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0">
-                <TextField fx:id="ajoutcode" prefHeight="25.0" prefWidth="305.0" promptText="Code">
+                <TextField fx:id="addCode" prefHeight="25.0" prefWidth="305.0" promptText="Code">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="40.0"/>
                     </VBox.margin>
                 </TextField>
-                <TextField fx:id="ajoutnom" promptText="Nom">
-                    <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0"/>
-                    </VBox.margin>
-                </TextField>
-                <TextField fx:id="ajouttemps" promptText="Temps en heure">
+                <TextField fx:id="addName" promptText="Nom">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0"/>
                     </VBox.margin>
                 </TextField>
                 <HBox prefHeight="27.0" prefWidth="287.0">
-                    <ComboBox fx:id="comboBoxElemE" minWidth="135.0" nodeOrientation="LEFT_TO_RIGHT"
+                    <ComboBox fx:id="comboBoxElementInput" minWidth="135.0" nodeOrientation="LEFT_TO_RIGHT"
                               promptText="Elément">
                         <HBox.margin>
                             <Insets left="10.0"/>
                         </HBox.margin>
                     </ComboBox>
-                    <TextField fx:id="inputQuantiteE" promptText="Quantité">
+                    <TextField fx:id="quantityInput" promptText="Quantité">
                         <opaqueInsets>
                             <Insets/>
                         </opaqueInsets>
@@ -69,19 +56,19 @@
                 </HBox>
                 <Button mnemonicParsing="false" onAction="#createInputList" styleClass="action-button-add-chaine"
                         text="+ Nouvel élément" VBox.vgrow="NEVER"/>
-                <TextField fx:id="ajoutListeEntree" promptText="Eléments en entrée">
+                <TextField fx:id="addListInput" promptText="Eléments en entrée">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0"/>
                     </VBox.margin>
                 </TextField>
                 <HBox prefHeight="0.0" prefWidth="330.0">
-                    <ComboBox fx:id="comboBoxElemS" minWidth="135.0" nodeOrientation="LEFT_TO_RIGHT"
+                    <ComboBox fx:id="comboBoxElementOutput" minWidth="135.0" nodeOrientation="LEFT_TO_RIGHT"
                               promptText="Elément">
                         <HBox.margin>
                             <Insets left="10.0"/>
                         </HBox.margin>
                     </ComboBox>
-                    <TextField fx:id="inputQuantiteS" promptText="Quantité">
+                    <TextField fx:id="quantityOutput" promptText="Quantité">
                         <opaqueInsets>
                             <Insets/>
                         </opaqueInsets>
@@ -97,33 +84,31 @@
                         <Font size="10.0"/>
                     </font>
                 </Button>
-                <TextField fx:id="ajoutListeSortie" promptText="Eléments en sortie">
+                <TextField fx:id="addListOutput" promptText="Eléments en sortie">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0"/>
                     </VBox.margin>
                 </TextField>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                     <VBox prefHeight="200.0" prefWidth="150.0">
-                        <children>
-                            <Button mnemonicParsing="false" onAction="#clearTextField" prefHeight="29.0"
-                                    prefWidth="200.0" styleClass="action-button-clear" text="Réinitialiser">
-                                <VBox.margin>
-                                    <Insets bottom="20.0"/>
-                                </VBox.margin>
-                            </Button>
-                            <Button mnemonicParsing="false" onAction="#modifyChaine" prefHeight="29.0"
-                                    prefWidth="200.0" styleClass="action-button-mod" text="Modifier">
-                                <VBox.margin>
-                                    <Insets/>
-                                </VBox.margin>
-                            </Button>
-                        </children>
                         <HBox.margin>
                             <Insets right="30.0"/>
                         </HBox.margin>
                         <padding>
                             <Insets left="5.0"/>
                         </padding>
+                        <Button mnemonicParsing="false" onAction="#clearTextField" prefHeight="29.0"
+                                prefWidth="200.0" styleClass="action-button-clear" text="Réinitialiser">
+                            <VBox.margin>
+                                <Insets bottom="20.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#modifyChaine" prefHeight="29.0"
+                                prefWidth="200.0" styleClass="action-button-mod" text="Modifier">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Button>
                     </VBox>
                     <VBox prefHeight="200.0" prefWidth="150.0">
                         <padding>
