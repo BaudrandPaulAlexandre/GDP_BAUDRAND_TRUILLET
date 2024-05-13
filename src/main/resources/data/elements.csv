@@ -1,7 +1,12 @@
-E001;Circuit principal;210.0;piece;50.0;20.0
-E002;Plastique;10.0;piece;3.0;1.0
-E003;Plaques aluminium;157.0;piece;20.0;10.0
-E004;Servomoteurs;85.0;piece;15.0;10.0
-E005;Propulsions;60.0;piece;10.0;15.0
-E006;Coques;120.0;piece;10.0;20.0
-E007;Drones;4.0;piece;10.0;150.0
+E001;Sel;210.0;kilogram;50.0;20.0
+E002;Sucre;10.0;kilogram;3.0;1.0
+E003;Levure;157.0;piece;20.0;10.0
+E004;Beurre;85.0;kilogram;15.0;10.0
+E005;Farine;60.0;kilogram;10.0;15.0
+E006;Lait;120.0;liter;10.0;20.0
+E007;Oeuf;4.0;piece;10.0;50.0
+E008;Chocolat;4.0;kilogram;10.0;15.0
+E009;Vanille;4.0;piece;10.0;150.0
+E010;Cookie;4.0;piece;10.0;25.0
+E011;Croissant;4.0;piece;10.0;75.0
+E012;Pain;4.0;piece;10.0;50.0
