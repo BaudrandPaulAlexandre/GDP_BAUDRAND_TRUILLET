@@ -14,7 +14,6 @@ import static org.project.components.models.Bakery.getChain;
 import static org.project.components.models.Bakery.getElements;
 public class UtilsChain {
 
-    //TODO: accès à chains.csv // C:\Users\Paul-AlexandreBaudra\Desktop\GDP_BAUDRAND_TRUILLET\src\main\resources\data\chains.csv
     private static final String CHAINES_FILE_PATH = "src/main/resources/data/chains.csv";
     private static final String CHAINE_CODE_FORMAT = "C\\d{3}";
     private static final String CHAINE_CODE_ERROR_MESSAGE = "Code sour format : 'C000' - 'C999'";

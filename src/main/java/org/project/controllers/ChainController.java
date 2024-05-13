@@ -68,12 +68,12 @@ public class ChainController implements Initializable {
         });
     }
 
-    public void goToHome(ActionEvent actionEvent) throws IOException {
+    public void goToChains(ActionEvent actionEvent) throws IOException {
         UtilsView.goToScene("/views/home.fxml", actionEvent);
     }
 
-    public void goToInventaire(ActionEvent actionEvent) throws IOException {
-        UtilsView.goToScene("/views/inventory.fxml", actionEvent);
+    public void goToElements(ActionEvent actionEvent) throws IOException {
+        UtilsView.goToScene("/views/elements.fxml", actionEvent);
     }
 
     public void createList(TextField listField, ComboBox<String> elementComboBox, TextField quantityField) {

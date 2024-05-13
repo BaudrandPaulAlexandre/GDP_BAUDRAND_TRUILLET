@@ -65,12 +65,12 @@ public class ResultController implements Initializable {
 
     public void goToChainProduction(ActionEvent actionEvent) throws IOException {
         clearChainsOrder();
-        UtilsView.goToScene("/views/chain.fxml", actionEvent);
+        UtilsView.goToScene("/views/chains.fxml", actionEvent);
     }
 
-    public void goToInventory(ActionEvent actionEvent) throws IOException {
+    public void goToElements(ActionEvent actionEvent) throws IOException {
         clearChainsOrder();
-        UtilsView.goToScene("/views/inventory.fxml", actionEvent);
+        UtilsView.goToScene("/views/elements.fxml", actionEvent);
     }
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -106,12 +106,12 @@ public class ResultController implements Initializable {
         chaineTableView.setItems(getOrders());
 
         String[] s = getNbOrder().split("/");
-        double resultat = (double) Double.parseDouble(s[0]) / Double.parseDouble(s[1]) ;
-        orderResult.setProgress(resultat);
+        double result = (double) Double.parseDouble(s[0]) / Double.parseDouble(s[1]) ;
+        orderResult.setProgress(result);
         int total = Integer.parseInt(s[0]) + Integer.parseInt(s[1]);
-        int realisees = Integer.parseInt(s[0]);
-        double pourcentage = ((double) realisees / total) * 100;
+        int realised = Integer.parseInt(s[0]);
+        double percentage = ((double) realised / total) * 100;
 
-        stat.setText("Résultat : " + realisees + "/" + total + " réalisées (" + pourcentage + "%) !");
+        stat.setText("Taux de production : " + String.format("%.2f",percentage) + "% !");
     }
 }

@@ -6,24 +6,23 @@
 
 <BorderPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.project.controllers.HomeController">
 
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" />
+    </padding>
+
     <top>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0" BorderPane.alignment="CENTER">
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                 <Button styleClass="nav-button" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                        minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="105.0" text="Accueil"
-                        textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" wrapText="true" VBox.vgrow="ALWAYS"/>
+                        minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="105.0" text="Chaines"
+                        textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" wrapText="true" VBox.vgrow="ALWAYS"
+                        style="-fx-background-color: #6b7b87;"/>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                 <Button styleClass="nav-button" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
                         minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="157.0" text="Inventaire" onAction="#goToInventaire" textAlignment="CENTER"
+                        prefWidth="157.0" text="Elements" onAction="#goToElements" textAlignment="CENTER"
                         textOverrun="LEADING_ELLIPSIS" wrapText="true" VBox.vgrow="ALWAYS"/>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="241.0">
-                <Button styleClass="nav-button" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity"
-                        maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-                        prefHeight="50.0" prefWidth="270.0" onAction="#goToChainProduction"
-                        text="Chaine de production" wrapText="true"/>
             </VBox>
         </HBox>
     </top>
@@ -42,7 +41,7 @@
                        <TableColumn fx:id="chainOutput" prefWidth="248.20001220703125" styleClass="table-column"
                                     text="Eléments en sortie"/>
                        <TableColumn fx:id="quantity" prefWidth="248.20001220703125" styleClass="table-column"
-                                    text="Qte"/>
+                                    text="Produire"/>
                    </columns>
                    <columnResizePolicy>
                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>

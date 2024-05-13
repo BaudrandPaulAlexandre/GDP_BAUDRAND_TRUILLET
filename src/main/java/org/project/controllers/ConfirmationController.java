@@ -34,10 +34,10 @@ public class ConfirmationController implements Initializable {
     }
 
     public void goToChaineProduction(ActionEvent actionEvent) throws IOException {
-        UtilsView.goToScene("/views/chain.fxml", actionEvent);
+        UtilsView.goToScene("/views/chains.fxml", actionEvent);
     }
 
     public void goToInventaire(ActionEvent actionEvent) throws IOException {
-        UtilsView.goToScene("/views/inventory.fxml", actionEvent);
+        UtilsView.goToScene("/views/elements.fxml", actionEvent);
     }
 }

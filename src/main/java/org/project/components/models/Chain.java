@@ -40,10 +40,11 @@ public class Chain {
     public String getInputListFormatted() {
         StringBuilder str = new StringBuilder();
         for (Map.Entry<Element, Double> entry : elementsInput.entrySet()) {
+            str.append("(");
             str.append(entry.getKey().getCode());
-            str.append(" * ");
-            str.append(entry.getValue());
             str.append(", ");
+            str.append(entry.getValue());
+            str.append("); ");
         }
         str.setLength(str.length() - 2);
         return str.toString();
@@ -52,10 +53,11 @@ public class Chain {
     public String getOutputListFormatted() {
         StringBuilder str = new StringBuilder();
         for (Map.Entry<Element, Double> input : elementsOutput.entrySet()) {
+            str.append("(");
             str.append(input.getKey().getCode());
-            str.append(" * ");
+            str.append("), ");
             str.append(input.getValue());
-            str.append(", ");
+            str.append("; ");
         }
         str.setLength(str.length() - 2);
         return str.toString();
@@ -104,7 +106,7 @@ public class Chain {
                 if (getElements().get(index).getQuantity()-(currentElement.getValue() * qtt) >= 0) {
                     feasible = true;
                 } else {
-                    System.out.println("Pas quantité suffisante");
+                    System.out.println("Quantité insuffisante");
                     return false;
                 }
             } else {

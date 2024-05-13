@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -43,19 +40,18 @@ public class HomeController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private int currentQuantity;
-    private final Map<Chain, Integer> orderListHome = new HashMap<>();
+    private int currentQuantity = 0;
+    private final Map<Chain, Integer> orderListChains = new HashMap<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.currentQuantity = 0;
 
         this.chainCode.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
         this.chainName.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
         this.chainInput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getInputListFormatted()));
         this.chainOutput.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getOutputListFormatted()));
 
-        Callback<TableColumn<Chain, String>, TableCell<Chain, String>> cellFactory = (TableColumn<Chain, String> param) -> {
+        Callback<TableColumn<Chain, String>, TableCell<Chain, String>> cellChains = (TableColumn<Chain, String> param) -> {
             final TableCell<Chain, String> cell = new TableCell<Chain, String>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
@@ -66,42 +62,29 @@ public class HomeController implements Initializable {
                     } else {
                         Button add = new Button("+");
                         Button less = new Button("-");
-                        TextFieldTableCell tf = new TextFieldTableCell();
-
-                        tf.setText(String.valueOf(currentQuantity));
-                        tf.setStyle(" -fx-cursor: hand ;" + "-glyph-size:50px;" + "-fx-fill:#ff1744;" +
-                                    "-fx-cell-size: 80px;" + "-fx-start-margin: 30px;" + "-fx-pref-width: 60px;" +
-                                    "-fx-alignment: center;"
-                        );
-
-                        add.setStyle("-fx-cursor: hand;" + "-glyph-size:28px;" + "-fx-fill:#ff1744;"+ "-fx-border-radius: 50px;");
-
-                        less.setStyle(" -fx-cursor: hand ;" + "-glyph-size:28px;" + "-fx-fill:#00E676;" + "-fx-border-radius: 50px;"
-                        );
-
-                        tf.setEditable(true);
+                        Label quantityText = new Label();
+                        quantityText.setText(String.valueOf(currentQuantity));
 
                         add.setOnAction(e -> {
-                            currentQuantity = Integer.parseInt(tf.getText());
-                            tf.setText(Integer.toString(currentQuantity + 1));
-                            orderListHome.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQuantity + 1));
+                            currentQuantity = Integer.parseInt(quantityText.getText());
+                            quantityText.setText(Integer.toString(currentQuantity + 1));
+                            orderListChains.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQuantity + 1));
                         });
 
                         less.setOnAction(e -> {
-                            currentQuantity = Integer.parseInt(tf.getText());
-                            tf.setText(Integer.toString(Math.max(0, currentQuantity - 1)));
-                            orderListHome.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQuantity - 1));
+                            currentQuantity = Integer.parseInt(quantityText.getText());
+                            quantityText.setText(Integer.toString(Math.max(0, currentQuantity - 1)));
+                            orderListChains.put(getTableView().getItems().get(getIndex()), Math.max(0, currentQuantity - 1));
                             if (currentQuantity - 1 == 0) {
-                                orderListHome.remove(getTableView().getItems().get(getIndex()));
+                                orderListChains.remove(getTableView().getItems().get(getIndex()));
                             }
                         });
 
-                        HBox managebtn = new HBox();
-                        managebtn.getChildren().addAll(add, tf, less);
-                        managebtn.setStyle("-fx-alignment:center");
+                        HBox quantityToProduce = new HBox();
+                        quantityToProduce.getChildren().addAll(less, quantityText, add);
+                        quantityToProduce.setStyle("-fx-alignment:center");
 
-                        setGraphic(managebtn);
-
+                        setGraphic(quantityToProduce);
                         setText(null);
                     }
                 }
@@ -109,20 +92,16 @@ public class HomeController implements Initializable {
             return cell;
         };
 
-        quantity.setCellFactory(cellFactory);
-        chainTableView.setItems(getChain());
+        this.quantity.setCellFactory(cellChains);
+        this.chainTableView.setItems(getChain());
     }
 
     public void goToResult(ActionEvent actionEvent) throws IOException {
-        parseHashmapToCommand(orderListHome);
+        parseHashmapToCommand(this.orderListChains);
         UtilsView.goToScene("/views/result.fxml", actionEvent);
     }
 
-    public void goToChainProduction(ActionEvent actionEvent) throws IOException {
-        UtilsView.goToScene("/views/chain.fxml", actionEvent);
-    }
-
-    public void goToInventaire(ActionEvent actionEvent) throws IOException {
-        UtilsView.goToScene("/views/inventory.fxml", actionEvent);
+    public void goToElements(ActionEvent actionEvent) throws IOException {
+        UtilsView.goToScene("/views/elements.fxml", actionEvent);
     }
 }
